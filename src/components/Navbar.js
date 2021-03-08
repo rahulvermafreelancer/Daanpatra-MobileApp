@@ -56,7 +56,7 @@ export default class BottomNavigator extends Component {
           <View style={styles.alignIcon}>
             <TouchableOpacity
               onPress={() => {
-                Alert.alert('click');
+                Alert.alert('Donate');
               }}>
               <Image
                 style={{width: 30, height: 30}}
@@ -65,7 +65,7 @@ export default class BottomNavigator extends Component {
                     'https://images.vexels.com/media/users/3/140527/isolated/preview/449b95d58f554656b159dd3ca21ab123-home-round-icon-by-vexels.png',
                 }}
                 onPress={() => {
-                  Alert.alert('');
+                  Alert.alert('Donate');
                 }}></Image>
             </TouchableOpacity>
             <Text style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -76,7 +76,7 @@ export default class BottomNavigator extends Component {
           <View style={styles.alignIcons}>
             <TouchableOpacity
               onPress={() => {
-                Alert.alert('click');
+                Alert.alert('Home');
               }}>
               <Image
                 style={{width: 30, height: 30}}
@@ -85,7 +85,7 @@ export default class BottomNavigator extends Component {
                     'https://www.searchpng.com/wp-content/uploads/2019/02/Samsung-Gallery-PNG-Icon.png',
                 }}
                 onPress={() => {
-                  Alert.alert('click');
+                  Alert.alert('Gallery');
                 }}
               />
             </TouchableOpacity>
@@ -111,7 +111,7 @@ export default class BottomNavigator extends Component {
                     'https://listimg.pinclipart.com/picdir/s/215-2150868_home-menu-icon-png-www-pixshark-com-images.png',
                 }}
                 onPress={() => {
-                  Alert.alert('click');
+                  Alert.alert('Certificate');
                 }}
                 style={{marginHorizontal: 16, width: 30, height: 30}}
                 containerStyle={{marginHorizontal: 16}}
@@ -129,7 +129,7 @@ export default class BottomNavigator extends Component {
             }}>
             <TouchableOpacity
               onPress={() => {
-                Alert.alert('click');
+                Alert.alert('Profile');
               }}>
               <Image
                 source={{
