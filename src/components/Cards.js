@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, StyleSheet , TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   Container,
   Header,
@@ -8,19 +8,22 @@ import {
   CardItem,
   Text,
   Button,
-  Icon,
   Left,
   Body,
   Right,
 } from 'native-base';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 import DonateImage from '../asset/images/Donate.png';
 
+import Carousel from 'react-native-snap-carousel';
 
 const Cards = () => {
+
+
   return (
+   
     <Container style={styles.container}>
-      <Header />
       <Content>
         <Card>
           <CardItem cardBody>
@@ -32,14 +35,14 @@ const Cards = () => {
           <CardItem>
             <Left>
               <Button transparent>
-                <Icon active name="thumbs-up" />
-                <Text>12 Likes</Text>
+                <Icon active name="heart"  />
+                <Text>Likes</Text>
               </Button>
             </Left>
             <Body>
               <Button transparent>
                 <Icon active name="chatbubbles" />
-                <Text>4 Comments</Text>
+                <Text>Comment</Text>
               </Button>
             </Body>
             <Right>
@@ -53,10 +56,12 @@ const Cards = () => {
 };
 
 const styles = StyleSheet.create({
-
   container: {
-      backgroundColor: 'red'
-  }
+    width: '90%',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginTop: '5%',
+  },
 });
 
-export default Cards; 
+export default Cards;

@@ -4,14 +4,12 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import Cards from './src/components/Cards';
-import Navbar from './src/components/Navbar';
+import HomeScreen from './src/screens/HomeScreen';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Cards />
-      <Navbar />
+      <HomeScreen />
     </SafeAreaView>
   );
 };
@@ -20,7 +18,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    // backgroundColor: 'red',
   },
 });
 
