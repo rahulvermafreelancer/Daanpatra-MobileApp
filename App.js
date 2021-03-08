@@ -1,47 +1,24 @@
-
 import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity
 } from 'react-native';
 
-import Login from './src/asset/images/LastScreen.jpg';
-import DaanpatraLogo from './src/asset/images/DaanpatraLogo.png';
+import HomeScreen from './src/screens/HomeScreen';
 
-
-
-const  App = () => {
+const App = () => {
   return (
-    <SafeAreaView>
-      <ScrollView>
-          <View>
-          <CardEcomFour
-            title={"Porsche Rubber"}
-            subTitle={"Zermatt is famed as a mounering and ski destome banmdo liono"}
-            price={"$200"}
-            image={require("./src/asset/images")}
-            buttonText={"VIEW DETAILS"}
-            buttonColor={"#4383FF"}
-            onClickButton={() => alert("Has clicked")}
-          />
-          </View>
-      </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <HomeScreen />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  
-  
+  container: {
+    width: '100%',
+    height: '100%',
+  },
 });
 
 export default App;
-
-
-
