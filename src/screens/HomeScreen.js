@@ -1,6 +1,9 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 
+import Profile from './Profile';
+import Gallery from './Gallery';
+import Certificate from './Certificate';
 
 import Navbar from '../components/Navbar';
 import MyCarousel from '../components/MyCarousel';
@@ -18,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-
   },
 });
 

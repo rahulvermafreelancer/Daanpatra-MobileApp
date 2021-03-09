@@ -5,19 +5,20 @@ import asyncstorage from '@react-native-community/async-storage';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
+  
   const [user, setUser] = useState(null);
 
-  const login = async (email, password) => {
+  const login = async (phone,otp) => {
     try {
-      return await auth().signInWithEmailAndPassword(email, password);
+      return await auth().signInWithEmailAndPassword(phone, otp);
     } catch (error) {
       alert(error.message.substring(error.message.lastIndexOf(']') + 2));
     }
   };
 
-  const register = async (email, password) => {
+  const register = async (phone) => {
     try {
-      return await auth().createUserWithEmailAndPassword(email, password);
+      return await auth().createUserWithEmailAndPassword(phone, otp);
     } catch (error) {
       alert(error.message.substring(error.message.lastIndexOf(']') + 2));
     }

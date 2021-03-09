@@ -4,11 +4,14 @@ import {createStackNavigator} from '@react-navigation/stack';
 // Application Screens
 import HomeScreen from '../screens/HomeScreen';
 import Gallery from '../screens/Gallery';
+import Profile from '../screens/Profile';
+import Certificate from '../screens/Certificate';
+
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
 
-function MainStackScreen() {
+const  MainStackScreen = () => {
   return (
     <MainStack.Navigator>
       <MainStack.Screen
@@ -29,6 +32,32 @@ function MainStackScreen() {
           ),
         })}
       />
+       <MainStack.Screen
+        name="Profile"
+        component={Profile}
+        options={({navigation}) => ({
+          title: '',
+          headerTransparent: true,
+          headerLeft: () => (
+            <BackButtonYellowBubble
+              onPress={() => navigation.navigate('Profile')}
+            />
+          ),
+        })}
+      />
+       <MainStack.Screen
+        name="Certificate"
+        component={Certificate}
+        options={({navigation}) => ({
+          title: '',
+          headerTransparent: true,
+          headerLeft: () => (
+            <BackButtonYellowBubble
+              onPress={() => navigation.navigate('Certificate')}
+            />
+          ),
+        })}
+      />
     </MainStack.Navigator>
   );
 }
@@ -37,8 +66,8 @@ function AppStack() {
   return (
     <RootStack.Navigator mode="modal">
       <RootStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="Main"
+        component={MainStackScreen}
         options={{headerShown: false}}
       />
 

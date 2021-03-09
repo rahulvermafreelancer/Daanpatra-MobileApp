@@ -56,7 +56,7 @@ export default class BottomNavigator extends Component {
           <View style={styles.alignIcon}>
             <TouchableOpacity
               onPress={() => {
-                Alert.alert('Donate');
+                Alert.alert('Home');
               }}>
               <Image
                 style={{width: 30, height: 30}}
@@ -65,7 +65,7 @@ export default class BottomNavigator extends Component {
                     'https://images.vexels.com/media/users/3/140527/isolated/preview/449b95d58f554656b159dd3ca21ab123-home-round-icon-by-vexels.png',
                 }}
                 onPress={() => {
-                  Alert.alert('Donate');
+                  Alert.alert('Home');
                 }}></Image>
             </TouchableOpacity>
             <Text style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -160,8 +160,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
   },
   button: {
-    width: 60,
-    height: 60,
+    width: '85%',
+    height: '85%',
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: 'grey',
