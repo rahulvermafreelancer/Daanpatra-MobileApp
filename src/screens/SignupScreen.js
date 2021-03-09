@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -7,55 +6,58 @@ import {
   Text,
   Image,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform,
 } from 'react-native';
+
+import {AuthContext} from '../navigation/AuthProvider';
+
+const {register}      = useContext(AuthContext);
 
 import Signup from '../asset/images/LastScreen.jpg';
 import DaanpatraLogo from '../asset/images/DaanpatraLogo.png';
 
+const SignupScreen = ({navigation}) => {
 
+  const emailSignIn = () => {
+    navigation.navigate('SignupScreen');
+  };
 
-const  SignupScreen = () => {
   return (
     <SafeAreaView>
-
       <View>
-          <Image source={DaanpatraLogo} style={styles.LogoAlign} />
+        <Image source={DaanpatraLogo} style={styles.LogoAlign} />
       </View>
 
-        <View style={styles.SignupHeading}>
-            <Text>
-                Signup
-            </Text>
+      <View style={styles.SignupHeading}>
+        <Text>Signup</Text>
+      </View>
+      <View>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder="   Phone Number"
+          placeholderTextColor="#000000"
+          autoCapitalize="none"
+        />
+      </View>
+      <TouchableOpacity >
+        <View style={styles.button} onPress={emailSignIn}>
+          <Text>Register</Text>
         </View>
-        <View>
-            <TextInput 
-              style = {styles.input}
-              underlineColorAndroid = "transparent"
-              placeholder = "   Phone Number"
-              placeholderTextColor = "#000000"
-              autoCapitalize = "none"
-            />
-        </View>
-        <View style={styles.button}> 
-            <TouchableOpacity>
-                <Text>Register</Text>
-            </TouchableOpacity>
-        </View>
-        <View>
-            <Image source={Signup} style={styles.SignupBackground} />
-        </View>
-        
+      </TouchableOpacity>
+      <View>
+        <Image source={Signup} style={styles.SignupBackground} />
+      </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  
-    SignupBackground: {
-      top: "35%",
-      width: '100%',
-      height:'60%',
+  SignupBackground: {
+    top: '35%',
+    width: '100%',
+    height: '60%',
   },
   SignupHeading: {
     top: '5%',
@@ -66,11 +68,11 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     width: '50%',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   LogoAlign: {
     alignSelf: 'center',
-    marginTop: '10%'
+    marginTop: '10%',
   },
   input: {
     top: '70%',
@@ -79,19 +81,16 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 2,
     borderRadius: 10,
- },
- button: {
-   alignSelf: 'center',
-   top: '8%',
-   borderWidth: 0,
-   borderColor: '#FFDE00',
-   backgroundColor: '#FFDE00',
-   padding: 15,
-   borderRadius: 10,
- }
+  },
+  button: {
+    alignSelf: 'center',
+    top: '8%',
+    borderWidth: 0,
+    borderColor: '#FFDE00',
+    backgroundColor: '#FFDE00',
+    padding: 15,
+    borderRadius: 10,
+  },
 });
 
 export default SignupScreen;
-
-
-
