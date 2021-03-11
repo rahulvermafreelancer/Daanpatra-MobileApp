@@ -1,17 +1,17 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-
-import Profile from './Profile';
-import Gallery from './Gallery';
-import Certificate from './Certificate';
+import {SafeAreaView, StyleSheet, View, Image} from 'react-native';
 
 import Navbar from '../components/Navbar';
-import MyCarousel from '../components/MyCarousel';
+
+//import image
+import HomeBackground from '../asset/images/HomeBackground.png';
 
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <MyCarousel />
+      <View>
+        <Image source={HomeBackground} style={styles.background} />
+      </View>
       <Navbar />
     </SafeAreaView>
   );
@@ -19,8 +19,14 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     width: '100%',
     height: '100%',
+  },
+  background: {
+    flexDirection: 'column',
+    width: '100%',
+    height: '80%',
   },
 });
 
