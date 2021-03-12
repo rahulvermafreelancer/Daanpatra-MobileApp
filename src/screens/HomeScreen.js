@@ -1,7 +1,8 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, Image} from 'react-native';
 
-import Navbar from '../components/Navbar';
+import TabsBar from '../components/TabsBar';
+import DonateButton from '../components/DonateButton';
 
 //import image
 import HomeBackground from '../asset/images/HomeBackground.png';
@@ -9,24 +10,38 @@ import HomeBackground from '../asset/images/HomeBackground.png';
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <View>
-        <Image source={HomeBackground} style={styles.background} />
+      <View style={styles.body}>
+        <View style={styles.backImage}>
+          <Image source={HomeBackground} style={styles.background} />
+        </View>
+        <DonateButton />
       </View>
-      <Navbar />
+      <TabsBar />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: '100%',
     height: '100%',
+    backgroundColor: '#fff',
   },
-  background: {
+  body: {
+    flex: 6,
     flexDirection: 'column',
     width: '100%',
+    paddingTop: '20%',
+  },
+  backImage: {
+    width: '100%',
     height: '80%',
+    position: 'absolute',
+  },
+  background: {
+    flex: 1,
+    width: '100%',
+    height: '65%',
   },
 });
 
