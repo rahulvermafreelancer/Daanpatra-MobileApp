@@ -25,7 +25,7 @@ const DonateButton = () => {
 
 const styles = StyleSheet.create({
   upperCircle: {
-    height: '70%',
+    height: '75%',
     width: '80%',
     borderRadius: Dimensions.get('window').width / 2,
     backgroundColor: '#fdf8ee',

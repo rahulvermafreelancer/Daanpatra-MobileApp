@@ -1,7 +1,8 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, Image} from 'react-native';
 
-import TabsBar from '../components/TabsBar';
+// import TabsBar from '../components/TabsBar';
+import NewNav from '../components/NewNav';
 import DonateButton from '../components/DonateButton';
 
 //import image
@@ -16,7 +17,7 @@ const HomeScreen = () => {
         </View>
         <DonateButton />
       </View>
-      <TabsBar />
+      <NewNav />
     </SafeAreaView>
   );
 };
