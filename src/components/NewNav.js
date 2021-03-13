@@ -6,8 +6,9 @@ import TabBar from "fluidbottomnavigation-rn";
 export default class NewNav extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View />
+      
+      // <View style={styles.container}>
+      //   <View />
         <TabBar
           onPress={tabIndex => {
             // eslint-disable-next-line no-console
@@ -21,7 +22,7 @@ export default class NewNav extends Component {
             { title: "Profile", icon: require("../asset/images/user.png") }
           ]}
         />
-      </View>
+      // </View>
     );
   }
 }
