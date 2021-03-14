@@ -3,7 +3,7 @@ import {View, ScrollView, StyleSheet, Text} from 'react-native';
 
 import MyCarousel from '../components/MyCarousel';
 
-const Gallery = () => {
+const Gallery = ({navigation, route}) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.containerMain}>

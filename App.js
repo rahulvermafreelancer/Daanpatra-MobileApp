@@ -1,30 +1,27 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React from 'react';
+import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-// import SplashScreen from 'react-native-splash-screen';
-
+//import Screens
 import HomeScreen from './src/screens/HomeScreen';
+import Profile from './src/screens/Profile';
+import Rewards from './src/screens/Certificate';
+import Gallery from './src/screens/Gallery';
 
-// import Providers from './src/navigation';
+const Stack = createStackNavigator();
 
 const App = () => {
-  // useEffect(() => {
-  //   SplashScreen.hide();
-  // }, []);
-
   return (
-    <SafeAreaView style={styles.container}>
-      <HomeScreen />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Rewards">
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="Gallery" component={Gallery}  />
+        <Stack.Screen name="Rewards" component={Rewards} />
+        <Stack.Screen name="Profile" component={Profile} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-  // return <Providers />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-  },
-});
 
 export default App;

@@ -9,7 +9,7 @@ import DonateHistoryList from '../components/DonationHistoryList';
 //import image
 import HomeBackground from '../asset/images/HomeBackground.png';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.body}>
