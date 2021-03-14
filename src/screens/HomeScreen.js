@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import {SafeAreaView, StyleSheet, View, Image, Text} from 'react-native';
 
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
     padding: 10,
-    marginTop: '5%'
+    marginTop: '5%',
   },
   donation: {
     flex: 0.6,
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     width: '50%',
     alignSelf: 'center',
     marginTop: 10,
-     backgroundColor: '#DDD101',
+    backgroundColor: '#DDD101',
   },
   donationText: {
     fontSize: 18,
@@ -78,4 +76,3 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
-
