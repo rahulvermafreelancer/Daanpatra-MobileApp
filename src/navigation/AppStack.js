@@ -2,16 +2,18 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 // Application Screens
-import HomeScreen from '../screens/HomeScreen';
-import Gallery from '../screens/Gallery';
-import Profile from '../screens/Profile';
-import Certificate from '../screens/Certificate';
 
+import HomeScreen from '../screens/HomeScreen';
+import Profile from '../screens/Profile';
+import Rewards from '../screens/Certificate';
+import Gallery from '../screens/Gallery';
+import MainScreen from '../screens/MainScreen';
+import CardScreen from '../screens/CardScreenOne';
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
 
-const  MainStackScreen = () => {
+const MainStackScreen = () => {
   return (
     <MainStack.Navigator>
       <MainStack.Screen
@@ -20,47 +22,28 @@ const  MainStackScreen = () => {
         options={{headerShown: false}}
       />
       <MainStack.Screen
-        name="Gallery"
-        component={Gallery}
-        options={({navigation}) => ({
-          title: '',
-          headerTransparent: true,
-          headerLeft: () => (
-            <BackButtonYellowBubble
-              onPress={() => navigation.navigate('Gallery')}
-            />
-          ),
-        })}
-      />
-       <MainStack.Screen
         name="Profile"
         component={Profile}
-        options={({navigation}) => ({
-          title: '',
-          headerTransparent: true,
-          headerLeft: () => (
-            <BackButtonYellowBubble
-              onPress={() => navigation.navigate('Profile')}
-            />
-          ),
-        })}
+        options={{headerShown: false}}
       />
-       <MainStack.Screen
-        name="Certificate"
-        component={Certificate}
-        options={({navigation}) => ({
-          title: '',
-          headerTransparent: true,
-          headerLeft: () => (
-            <BackButtonYellowBubble
-              onPress={() => navigation.navigate('Certificate')}
-            />
-          ),
-        })}
+      <MainStack.Screen
+        name="Rewards"
+        component={Rewards}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="Gallery"
+        component={Gallery}
+        options={{headerShown: false}}
+      />
+      <MainStack.Screen
+        name="CardScreen"
+        component={CardScreen}
+        options={{headerShown: false}}
       />
     </MainStack.Navigator>
   );
-}
+};
 
 function AppStack() {
   return (
@@ -70,10 +53,9 @@ function AppStack() {
         component={MainStackScreen}
         options={{headerShown: false}}
       />
-
       <RootStack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="MainScreen"
+        component={MainScreen}
         options={{headerShown: false}}
       />
     </RootStack.Navigator>

@@ -25,7 +25,7 @@ const HomeScreen = ({navigation, route}) => {
         </View>
       </View>
 
-      <NewNav />
+      <NewNav navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -67,11 +67,11 @@ const styles = StyleSheet.create({
     width: '50%',
     alignSelf: 'center',
     marginTop: 10,
-    backgroundColor: '#DDD101',
+    backgroundColor: '#F7CD2E',
   },
   donationText: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '700',
   },
 });
 

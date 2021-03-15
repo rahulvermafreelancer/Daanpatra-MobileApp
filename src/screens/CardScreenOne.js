@@ -8,13 +8,14 @@ import {
   Text,
   StatusBar,
   Image,
+  TouchableOpacity
 } from 'react-native';
 
-import FirstSession from "./src/asset/images/FirstScreen.jpg" ;
-import LastScreen from './src/asset/images/LastScreen.jpg';
+import FirstSession from "../asset/images/FirstScreen.jpg" ;
+import LastScreen from '../asset/images/LastScreen.jpg';
 
 
-const CardScreenOne = () => {
+const CardScreenOne = ({navigation, route}) => {
 
   const Data = [
 
@@ -38,8 +39,7 @@ const CardScreenOne = () => {
   
   return (
     <SafeAreaView>
-      <StatusBar />
-        <ScrollView>
+        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
         <View>
             <View style={styles.CardStyle}>
                 <Image source={FirstSession} style={styles.firstSession} />
@@ -49,7 +49,7 @@ const CardScreenOne = () => {
                 <Image source={LastScreen} style={styles.lastSession} />
             </View>
         </View>
-        </ScrollView>
+        </TouchableOpacity>
     </SafeAreaView>
   );
 };
