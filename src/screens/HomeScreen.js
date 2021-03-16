@@ -1,5 +1,12 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Image, Text} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 // import TabsBar from '../components/TabsBar';
 import NewNav from '../components/NewNav';
@@ -16,7 +23,9 @@ const HomeScreen = ({navigation, route}) => {
         <View style={styles.backImage}>
           <Image source={HomeBackground} style={styles.background} />
         </View>
-        <DonateButton />
+        <TouchableOpacity onPress={ () => navigation.navigate('DonationForm')}>
+          <DonateButton />
+        </TouchableOpacity>
         <View style={styles.donation}>
           <Text style={styles.donationText}>Donation History</Text>
         </View>

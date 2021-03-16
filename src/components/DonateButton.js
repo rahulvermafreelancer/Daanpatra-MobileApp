@@ -10,7 +10,7 @@ import {
 const DonateButton = () => {
   return (
     <View style={{justifyContent: 'flex-start', alignItems: 'center', paddingTop: '20%'}}>
-      <TouchableOpacity
+      <TouchableOpacity 
         style={styles.upperCircle}>
         <View style={styles.innerCircle}>
           <View style={styles.innerMostCircle}>
@@ -25,8 +25,8 @@ const DonateButton = () => {
 
 const styles = StyleSheet.create({
   upperCircle: {
-    height: '65%',
-    width: '70%',
+    height: '70%',
+    width: '60%',
     borderRadius: Dimensions.get('window').width / 2,
     backgroundColor: '#fdf8ee',
     justifyContent: 'center',
