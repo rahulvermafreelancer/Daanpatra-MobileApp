@@ -57,7 +57,7 @@ const MyCarousel = props => {
           source={{uri: item.illustration}}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.4}
+          parallaxFactor={0.1}
           {...parallaxProps}
         />
         {/* <Text style={styles.title} numberOfLines={2}>
@@ -90,17 +90,18 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: '10%'
+    marginTop: '8%',
+    width: '80%'
   },
   item: {
     width: screenWidth - 60,
-    height: screenWidth - 60,
+    height: screenWidth - 100,
   },
   imageContainer: {
     flex: 1,
-    marginBottom: Platform.select({ios: 0, android: 1}), // Prevent a random Android rendering issue
+    marginBottom: Platform.select({ios: 0, android: 1}), 
     backgroundColor: 'white',
-    borderRadius: 10,
+    borderRadius: 30,
   },
   image: {
     ...StyleSheet.absoluteFillObject,

@@ -15,6 +15,27 @@ import LastScreen from './src/asset/images/LastScreen.jpg';
 
 
 const CardScreenOne = () => {
+
+  const Data = [
+
+    {
+      id: 1,
+      title: 'We belive in doing not just thinking',
+      subTitle: 'We are a family'
+    },
+    {
+      id: 2,
+      title: 'We belive in doing not just thinking',
+      subTitle: 'We are a family'
+    },
+    {
+      id: 3,
+      title: 'We belive in doing not just thinking',
+      subTitle: 'We are a family'
+    }
+  ];
+
+  
   return (
     <SafeAreaView>
       <StatusBar />
