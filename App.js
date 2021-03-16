@@ -1,30 +1,32 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import React from 'react';
+import 'react-native-gesture-handler';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-// import SplashScreen from 'react-native-splash-screen';
-
+//import Screens
 import HomeScreen from './src/screens/HomeScreen';
+import Profile from './src/screens/Profile';
+import Rewards from './src/screens/Certificate';
+import Gallery from './src/screens/Gallery';
 
-// import Providers from './src/navigation';
+import MainScreen from './src/screens/MainScreen';
+import CardScreen from './src/screens/CardScreenOne';
+
+const Stack = createStackNavigator();
 
 const App = () => {
-  // useEffect(() => {
-  //   SplashScreen.hide();
-  // }, []);
-
   return (
-    <SafeAreaView style={styles.container}>
-      <HomeScreen />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="MainScreen">
+      <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="CardScreen" component={CardScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Gallery" component={Gallery} options={{ headerShown: false }} />
+        <Stack.Screen name="Rewards" component={Rewards} options={{ headerShown: false }}/>
+        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-  // return <Providers />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-  },
-});
 
 export default App;
