@@ -9,9 +9,6 @@ const Gallery = ({navigation, route}) => {
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.containerMain}>
-          <View style={styles.pageHeading}>
-            <Text style={styles.text}>Gallery</Text>
-          </View>
           <MyCarousel />
         </View>
         <Nav navigation={navigation} />
