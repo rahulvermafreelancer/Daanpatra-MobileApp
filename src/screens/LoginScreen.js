@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,15 +9,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {AuthContext} from '../navigation/AuthProvider';
+// import {AuthContext} from '../navigation/AuthProvider';
 
-const {login} = useContext(AuthContext);
+// const {login} = useContext(AuthContext);
 
 import Login from '../asset/images/LastScreen.jpg';
 import DaanpatraLogo from '../asset/images/DaanpatraLogo.png';
 
-const LoginScreen = ({navigation}) => {
-  
+const LoginScreen = ({navigation, route}) => {
   const [phone, setPhone] = useState();
   const [otp, setOtp] = useState();
 
@@ -58,11 +57,15 @@ const LoginScreen = ({navigation}) => {
           onChangeText={(otp) => setOtp(otp)}
         />
       </View>
-      <TouchableOpacity onPress={() => phoneSignIn()}>
-        <View style={styles.button}>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate('HomeScreen')}
+        style={styles.button}>
+        <View>
           <Text>Submit</Text>
         </View>
       </TouchableOpacity>
+
       <View>
         <Image source={Login} style={styles.LoginBackground} />
       </View>

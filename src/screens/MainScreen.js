@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   mainScreenVector: {
     alignSelf: 'center',
-    top: '245%',
+    top: '270%',
   },
 });
 

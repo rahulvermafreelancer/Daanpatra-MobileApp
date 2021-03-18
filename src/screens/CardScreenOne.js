@@ -39,7 +39,7 @@ const CardScreenOne = ({navigation, route}) => {
   
   return (
     <SafeAreaView>
-        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
         <View>
             <View style={styles.CardStyle}>
                 <Image source={FirstSession} style={styles.firstSession} />
