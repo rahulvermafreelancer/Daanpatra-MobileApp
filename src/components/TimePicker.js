@@ -1,43 +1,53 @@
-import React, { useState } from "react";
-import { Button, StyleSheet, View } from "react-native";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
+import React, {useState} from 'react';
+import {View, Button, Platform, StyleSheet} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-const App = () => {
-  const [pickerMode, setPickerMode] = useState(null);
+const TimePicker = () => {
 
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState('date');
+  const [show, setShow] = useState(false);
 
-  const showTimePicker = () => {
-    setPickerMode("time");
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(Platform.OS === 'ios');
+    setDate(currentDate);
   };
 
-  const hidePicker = () => {
-    setPickerMode(null);
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
   };
 
-  const handleConfirm = (date) => {
-    console.warn("A date has been picked: ", date);
-    hidePicker();
+  const showTimepicker = () => {
+    showMode('time');
   };
 
   return (
-    <View style={style.root}>
-      <Button title="Show Time Picker" onPress={showTimePicker} />
-      <DateTimePickerModal
-        isVisible={pickerMode !== null}
-        mode={pickerMode}
-        onConfirm={handleConfirm}
-        onCancel={hidePicker}
-      />
+    <View>
+      <View style={styles.timePicker}>
+        <Button onPress={showTimepicker} title="Select Time" color="#F4BE2C"  />
+      </View>
+      {show && (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode={mode}
+          is24Hour={false}
+          display="spinner"
+          onChange={onChange}
+        />
+      )}
     </View>
   );
 };
 
-const style = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+const styles = StyleSheet.create({
+  timePicker: {
+    width: '50%',
+    height: '10%'
+  }
 });
 
-export default App;
+
+export default TimePicker;

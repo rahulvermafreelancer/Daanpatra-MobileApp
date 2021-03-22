@@ -8,11 +8,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import {Button,Text} from 'native-base';
+import {Button, Text} from 'native-base';
 
 import ProductQuntity from '../components/ProductQuantity';
 import ProductCategory from '../components/ProductCategory';
 import ProductDescription from '../components/ProductDescription';
+import DatePicker from '../components/DatePicker';
+import TimePicker from '../components/TimePicker';
 
 import BackArrow from '../asset/images/BackArrow.png';
 import DonationFormBG from '../asset/images/DonationFormBG.png';
@@ -33,6 +35,14 @@ const DonationForm = ({navigation, route}) => {
         </View>
         <View style={styles.productCategories}>
           <ProductCategory />
+        </View>
+        <View style={styles.dateTime}>
+          <View style={{width: '100%', alignItems: 'center'}}>
+            <DatePicker />
+          </View>
+          <View style={{width: '100%', alignItems: 'center'}}>
+            <TimePicker />
+          </View>
         </View>
         <View style={styles.productQuantity}>
           <ProductQuntity />
@@ -94,7 +104,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '50%',
     borderRadius: 60,
-  }
+  },
+  dateTime: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-around',
+    alignSelf: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default DonationForm;

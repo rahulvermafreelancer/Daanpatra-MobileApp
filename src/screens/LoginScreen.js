@@ -13,12 +13,9 @@ import * as conf from "../config/Config";
 import DaanpatraLogo from '../asset/images/DaanpatraLogo.png';
 import LoginDonation from '../asset/images/LoginDonation.jpg';
 
-
-
-
 const LoginScreen = ({navigation, route}) => {
-  const [phoneNo, setPhoneNo] = useState(null);
-  const [otp, setOtp] = useState(null);
+  const [phoneNo, setPhoneNo] = useState();
+  const [otp, setOtp] = useState();
 
   const getResult = (
     url,
@@ -132,4 +129,5 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
+
 
