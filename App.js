@@ -13,6 +13,7 @@ import DonationForm from './src/screens/DonationForm';
 import MainScreen from './src/screens/MainScreen';
 import CardScreen from './src/screens/CardScreenOne';
 import LoginScreen from './src/screens/LoginScreen';
+import SignupScreen from './src/screens/SignupScreen';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ const App = () => {
         <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }}/>
         <Stack.Screen name="DonationForm" component={DonationForm} options={{ headerShown: false }}/>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

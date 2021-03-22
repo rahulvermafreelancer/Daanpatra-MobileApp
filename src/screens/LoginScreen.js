@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,108 +9,127 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-// import {AuthContext} from '../navigation/AuthProvider';
-
-// const {login} = useContext(AuthContext);
-
-import Login from '../asset/images/LastScreen.jpg';
+import * as conf from "../config/Config";
 import DaanpatraLogo from '../asset/images/DaanpatraLogo.png';
+import LoginDonation from '../asset/images/LoginDonation.jpg';
+
+
+
 
 const LoginScreen = ({navigation, route}) => {
-  const [phone, setPhone] = useState();
-  const [otp, setOtp] = useState();
+  const [phoneNo, setPhoneNo] = useState(null);
+  const [otp, setOtp] = useState(null);
 
-  const phoneSignIn = () => {
-    if (phone && otp) {
-      login(phone, otp);
-    } else {
-      alert('Please enter your mobile number');
+  const getResult = (
+    url,
+    method = "GET",
+    data = null,
+    success = () => {},
+    failed = () => {}
+  ) => {
+    let parameters = {};
+    parameters.method = method;
+    if (data) {
+      parameters.body = data;
+    }
+    parameters.headers = {
+      "Content-Type": "application/json",
+      
+    };
+    try {
+      fetch(conf.apiUrl + url, parameters)
+        .then((response) => response.json())
+        .then((res) => {
+          success(res);
+        })
+        .catch((error) => {
+          failed(error);
+        });
+    } catch (error) {
+      failed(error);
     }
   };
+  
+
+  const signin = (phoneNo, otp, success = () => {}, failed = () => {}) => {
+    if (!otp || !phoneNo) return;
+    getResult(
+      "/login/",
+      "POST",
+      JSON.stringify({ username: phoneNo, password: otp }),
+      (response) => {
+        success(response);
+      }
+    );
+  };
+
+  const changePage = () => {
+    navigation.navigate('HomeScreen');
+  };
+
+
 
   return (
     <SafeAreaView>
       <View>
         <Image source={DaanpatraLogo} style={styles.LogoAlign} />
-      </View>
-
-      <View style={styles.LoginHeading}>
-        <Text>Login</Text>
-      </View>
-      <View>
-        <TextInput
-          style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="Phone Number"
-          placeholderTextColor="#000000"
-          autoCapitalize="none"
-          onChangeText={(phone) => setPhone(phone)}
-        />
-      </View>
-      <View>
-        <TextInput
-          style={styles.input}
-          underlineColorAndroid="transparent"
-          placeholder="OTP"
-          placeholderTextColor="#000000"
-          autoCapitalize="none"
-          onChangeText={(otp) => setOtp(otp)}
-        />
-      </View>
-
-      <TouchableOpacity
-        onPress={() => navigation.navigate('HomeScreen')}
+        <Image source={LoginDonation} style={{width: '100%', height: '40%'}} />
+        <View>
+          <TextInput
+            style={styles.input}
+            underlineColorAndroid="transparent"
+            placeholder="Phone Number"
+            placeholderTextColor="#000000"
+            autoCapitalize="none"
+            onChangeText={(phoneNo) => setPhoneNo(phoneNo)}
+          />
+          <TextInput
+            style={styles.input}
+            underlineColorAndroid="transparent"
+            placeholder="OTP"
+            placeholderTextColor="#000000"
+            autoCapitalize="none"
+            onChangeText={(otp) => setOtp(otp)}
+          />
+        </View>
+        <TouchableOpacity
+        onPress={ () => {
+          signin();
+          changePage();
+        }}
         style={styles.button}>
         <View>
           <Text>Submit</Text>
         </View>
       </TouchableOpacity>
-
-      <View>
-        <Image source={Login} style={styles.LoginBackground} />
       </View>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  LoginBackground: {
-    top: '35%',
-    width: '100%',
-    height: '60%',
-  },
-  LoginHeading: {
-    top: '5%',
-    alignItems: 'center',
-    borderWidth: 0,
-    borderColor: '#FFBE00',
-    backgroundColor: '#FFBE00',
-    borderRadius: 20,
-    padding: 10,
-    width: '50%',
-    alignSelf: 'center',
-  },
+  
   LogoAlign: {
     alignSelf: 'center',
     marginTop: '10%',
   },
   input: {
-    top: '70%',
-    margin: 20,
+    margin: 10,
     height: 40,
     borderColor: '#000000',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
   },
   button: {
     alignSelf: 'center',
-    top: '8%',
-    borderWidth: 0,
+    borderWidth: 1,
     borderColor: '#FFDE00',
     backgroundColor: '#FFDE00',
     padding: 15,
     borderRadius: 10,
+    marginTop: '5%'
   },
 });
 
 export default LoginScreen;
+
