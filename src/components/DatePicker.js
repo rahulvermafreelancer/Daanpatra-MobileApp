@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, Button, Platform, StyleSheet} from 'react-native';
+import {View, Button, Platform, StyleSheet, ViewBase} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { Input } from 'native-base';
 
 const DatePicker = () => {
 
@@ -13,7 +14,7 @@ const DatePicker = () => {
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
   };
-
+  
   const showMode = (currentMode) => {
     setShow(true);
     setMode(currentMode);
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   timePicker: {
     width: '50%',
     height: '10%'
-  }
+  },
 });
 
 

@@ -15,6 +15,7 @@ import ProductCategory from '../components/ProductCategory';
 import ProductDescription from '../components/ProductDescription';
 import DatePicker from '../components/DatePicker';
 import TimePicker from '../components/TimePicker';
+import Address from '../components/Address';
 
 import BackArrow from '../asset/images/BackArrow.png';
 import DonationFormBG from '../asset/images/DonationFormBG.png';
@@ -36,6 +37,9 @@ const DonationForm = ({navigation, route}) => {
         <View style={styles.productCategories}>
           <ProductCategory />
         </View>
+        <View style={styles.productQuantity}>
+          <Address />
+        </View>
         <View style={styles.dateTime}>
           <View style={{width: '100%', alignItems: 'center'}}>
             <DatePicker />
@@ -44,6 +48,7 @@ const DonationForm = ({navigation, route}) => {
             <TimePicker />
           </View>
         </View>
+        
         <View style={styles.productQuantity}>
           <ProductQuntity />
         </View>
@@ -84,6 +89,7 @@ const styles = StyleSheet.create({
     width: '80%',
     height: '10%',
     marginTop: '35%',
+    justifyContent: 'center',
     alignSelf: 'center',
   },
   productDescription: {
@@ -108,6 +114,7 @@ const styles = StyleSheet.create({
   dateTime: {
     flexDirection: 'row',
     width: '100%',
+    height: '10%',
     justifyContent: 'space-around',
     alignSelf: 'center',
     alignItems: 'center',
