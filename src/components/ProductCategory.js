@@ -16,7 +16,7 @@ export default class ProductCategory extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container style={{height: '20%'}}>
         <Content>
           <Form>
             <Picker
@@ -25,7 +25,7 @@ export default class ProductCategory extends Component {
               placeholder="Select your SIM"
               placeholderStyle={{ color: "#bfc6ea" }}
               placeholderIconColor="#007aff"
-              style={{ width: undefined }}
+              style={{ width: undefined}}
               selectedValue={this.state.selected}
               onValueChange={this.onValueChange.bind(this)}
             >

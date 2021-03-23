@@ -3,7 +3,7 @@ import {Container, Content, Form, Item, Input} from 'native-base';
 
 const ProductQuantity = () => {
   return (
-    <Container style={{borderWidth: 1, borderRadius: 40}}>
+    <Container style={{height: '20%'}}>
       <Content>
         <Form>
           <Item>

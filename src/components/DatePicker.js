@@ -25,7 +25,7 @@ const DatePicker = () => {
   };
 
   return (
-    <View>
+    <View >
       <View style={styles.timePicker}>
         <Button onPress={showDatepicker} title="Choose Date" color="#F4BE2C"/>
       </View>
@@ -45,7 +45,7 @@ const DatePicker = () => {
 
 const styles = StyleSheet.create({
   timePicker: {
-    width: '50%',
+    width: '100%',
     height: '10%'
   },
 });
