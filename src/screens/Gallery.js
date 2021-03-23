@@ -8,12 +8,9 @@ const Gallery = ({navigation, route}) => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <View style={styles.containerMain}>
-          <View style={styles.pageHeading}>
-            <Text style={styles.text}>Gallery</Text>
-          </View>
+        <ScrollView style={styles.containerMain}>
           <MyCarousel />
-        </View>
+        </ScrollView>
         <Nav navigation={navigation} />
       </View>
     </SafeAreaView>
@@ -27,22 +24,8 @@ const styles = StyleSheet.create({
   },
   containerMain: {
     width: '100%',
-    height: '89%',
-    marginTop: '8%',
-  },
-  pageHeading: {
-    width: '50%',
-    height: '8%',
-    justifyContent: 'center',
-    alignSelf: 'center',
-    borderWidth: 1,
-    borderColor: 'yellow',
-    borderRadius: 20,
-    backgroundColor: '#DDD101',
-  },
-  text: {
-    fontSize: 18,
-    textAlign: 'center',
+    height: '100%',
+    marginTop: '5%',
   },
 });
 

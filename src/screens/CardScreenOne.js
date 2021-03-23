@@ -1,88 +1,75 @@
-
-import React from 'react';
+import React, {Component} from 'react';
+import {Image} from 'react-native';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
+  Container,
   View,
+  DeckSwiper,
+  Card,
+  CardItem,
   Text,
-  StatusBar,
-  Image,
-  TouchableOpacity
-} from 'react-native';
+  Body,
+} from 'native-base';
 
-import FirstSession from "../asset/images/FirstScreen.jpg" ;
-import LastScreen from '../asset/images/LastScreen.jpg';
+const cards = [
+  {
+    title: 'We belive in doing not just thinking',
+    subTitle: 'We are a family',
+    image: require('../asset/images/FirstScreen.jpg'),
+    imageBottom: require('../asset/images/LastScreen.jpg'),
+  },
+  {
+    title: 'Make our dream true',
+    subTitle: 'We are a ca do it',
+    image: require('../asset/images/FirstScreen.jpg'),
+    imageBottom: require('../asset/images/LastScreen.jpg'),
+  },
+  {
+    title: 'Lets make a new world happieness',
+    subTitle: 'Live happy and healthy',
+    image: require('../asset/images/FirstScreen.jpg'),
+    imageBottom: require('../asset/images/LastScreen.jpg'),
+  },
+];
 
-
-const CardScreenOne = ({navigation, route}) => {
-
-  const Data = [
-
-    {
-      id: 1,
-      title: 'We belive in doing not just thinking',
-      subTitle: 'We are a family'
-    },
-    {
-      id: 2,
-      title: 'We belive in doing not just thinking',
-      subTitle: 'We are a family'
-    },
-    {
-      id: 3,
-      title: 'We belive in doing not just thinking',
-      subTitle: 'We are a family'
-    }
-  ];
-
-  
-  return (
-    <SafeAreaView>
-        <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
-        <View>
-            <View style={styles.CardStyle}>
-                <Image source={FirstSession} style={styles.firstSession} />
-                <Text style={styles.heading} >Daanpatra</Text>
-                <Text style={styles.paragraph}>We belive in doing not just thinking</Text>
-                <Text style={styles.NewParagraph}>We are a family</Text>
-                <Image source={LastScreen} style={styles.lastSession} />
-            </View>
+export default class CardScreenOne extends Component {
+  render() {
+    return (
+      <Container style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
+        <View style={{width: '100%', height: '100%', backgroundColor: 'white'}}>
+          <DeckSwiper
+          style={{ backgroundColor: 'white'}}
+            dataSource={cards}
+            looping={false}
+            renderItem={(item) => (
+              <Card style={{elevation: 3,}} >
+                <CardItem cardBody>
+                  <Image style={{height: 350, flex: 1}} source={item.image} />
+                </CardItem>
+                <CardItem>
+                  <Text style={{fontSize: 35}}>Daanpatra</Text>
+                </CardItem>
+                <CardItem >
+                  <Body>
+                    <Text style={{fontSize: 20}}>{item.title}</Text>
+                    <Text style={{fontSize: 18}}>{item.subTitle}</Text>
+                  </Body>
+                </CardItem>
+                <CardItem cardBody>
+                  <Image
+                    style={{height: 320, flex: 1}}
+                    source={item.imageBottom}
+                  />
+                </CardItem>
+              </Card>
+            )}
+          />
         </View>
-        </TouchableOpacity>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  
-  CardStyle : {
-    width: '100%'
-  },
-  firstSession : {
-    width: 420,
-    height: 400,
-    bottom : 30
-  },
-  heading: {
-    fontSize: 40,
-    textAlign: 'left',
-    marginLeft: '7%',
-  },
-  paragraph : {
-    fontSize: 20,
-    textAlign: 'left',
-    marginLeft: '7%',
-  },
-  NewParagraph: {
-    fontSize: 17,
-    textAlign: 'left',
-    marginLeft: '7%',
-  },
-  lastSession: {
-    width: 420,
-    height: 400,
+      </Container>
+    );
   }
-});
+}
 
-export default CardScreenOne;
+
+
+
+

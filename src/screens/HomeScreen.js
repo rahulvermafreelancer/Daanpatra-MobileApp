@@ -1,9 +1,16 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Image, Text} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
 
 // import TabsBar from '../components/TabsBar';
 import NewNav from '../components/NewNav';
-import DonateButton from '../components/DonateButton';
 import DonateHistoryList from '../components/DonationHistoryList';
 
 //import image
@@ -16,7 +23,19 @@ const HomeScreen = ({navigation, route}) => {
         <View style={styles.backImage}>
           <Image source={HomeBackground} style={styles.background} />
         </View>
-        <DonateButton />
+        <TouchableOpacity onPress={ () => navigation.navigate('DonationForm')}>
+        <View style={{justifyContent: 'flex-start', alignItems: 'center', paddingTop: '20%'}}>
+        <TouchableOpacity onPress={ () => navigation.navigate('DonationForm')}
+          style={styles.upperCircle}>
+          <View style={styles.innerCircle}>
+            <View style={styles.innerMostCircle}>
+              <Text style={{fontSize: 80}}>+</Text>
+              <Text style={{fontSize: 16}}>Donate</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
+      </View>
+        </TouchableOpacity>
         <View style={styles.donation}>
           <Text style={styles.donationText}>Donation History</Text>
         </View>
@@ -72,6 +91,30 @@ const styles = StyleSheet.create({
   donationText: {
     fontSize: 18,
     fontWeight: '700',
+  },
+  upperCircle: {
+    height: '70%',
+    width: '60%',
+    borderRadius: Dimensions.get('window').width / 2,
+    backgroundColor: '#fdf8ee',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerCircle: {
+    height: '80%',
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: Dimensions.get('window').width / 2,
+    backgroundColor: '#fffefd',
+  },
+  innerMostCircle: {
+    height: '80%',
+    width: '80%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: Dimensions.get('window').width / 2,
+    backgroundColor: '#ffe687',
   },
 });
 

@@ -19,7 +19,7 @@ const MainScreen = ({navigation, route}) => {
     <>
       <View style={styles.container}>
         <Image source={BGImage} style={styles.backImage} />
-        <TouchableOpacity onPress={() => navigation.navigate('CardScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
           <View>
             <Image source={DaanpatraLogo} style={styles.ImageLogo} />
           </View>

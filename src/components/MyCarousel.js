@@ -1,110 +1,63 @@
-import React, {useRef, useState, useEffect} from 'react';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  Platform,
-} from 'react-native';
+import React, { PureComponent } from 'react';
+import { View, StyleSheet, Image } from 'react-native';
 
-const ENTRIES1 = [
-  {
-    // title: 'Beautiful and dramatic Antelope Canyon',
-    // subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
-  },
-  {
-    // title: 'Earlier this morning, NYC',
-    // subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
-  },
-  {
-    // title: 'White Pocket Sunset',
-    // subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.imgur.com/MABUbpDl.jpg',
-  },
-  {
-    // title: 'Acrocorinth, Greece',
-    // subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
-  },
-  {
-    // title: 'The lone tree, majestic landscape of New Zealand',
-    // subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
-  },
+import GridList from 'react-native-grid-list';
+
+const items = [
+  { thumbnail: { uri: 'https://miro.medium.com/max/13334/1*l5gYlnoOxfxdkaLUiQwGCg.png' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIC0QbzIqwJm7-7Mitst-2y8cvPV-TAO51Fw&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBftdBY4Y0TI6jmMsGU615evHqzY5w9IuL3Q&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNCaNZ3Idv6vQZ_PsK06OcpDkkzJDNUgFEA&usqp=CAU' } },
+  { thumbnail: { uri: 'https://miro.medium.com/max/13334/1*l5gYlnoOxfxdkaLUiQwGCg.png' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIC0QbzIqwJm7-7Mitst-2y8cvPV-TAO51Fw&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNCaNZ3Idv6vQZ_PsK06OcpDkkzJDNUgFEA&usqp=CAU' } },
+  { thumbnail: { uri: 'https://miro.medium.com/max/13334/1*l5gYlnoOxfxdkaLUiQwGCg.png' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIC0QbzIqwJm7-7Mitst-2y8cvPV-TAO51Fw&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBftdBY4Y0TI6jmMsGU615evHqzY5w9IuL3Q&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNCaNZ3Idv6vQZ_PsK06OcpDkkzJDNUgFEA&usqp=CAU' } },
+  { thumbnail: { uri: 'https://miro.medium.com/max/13334/1*l5gYlnoOxfxdkaLUiQwGCg.png' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIC0QbzIqwJm7-7Mitst-2y8cvPV-TAO51Fw&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNCaNZ3Idv6vQZ_PsK06OcpDkkzJDNUgFEA&usqp=CAU' } },
+  { thumbnail: { uri: 'https://miro.medium.com/max/13334/1*l5gYlnoOxfxdkaLUiQwGCg.png' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIC0QbzIqwJm7-7Mitst-2y8cvPV-TAO51Fw&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBftdBY4Y0TI6jmMsGU615evHqzY5w9IuL3Q&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNCaNZ3Idv6vQZ_PsK06OcpDkkzJDNUgFEA&usqp=CAU' } },
+  { thumbnail: { uri: 'https://miro.medium.com/max/13334/1*l5gYlnoOxfxdkaLUiQwGCg.png' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIC0QbzIqwJm7-7Mitst-2y8cvPV-TAO51Fw&usqp=CAU' } },
+  { thumbnail: { uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVNCaNZ3Idv6vQZ_PsK06OcpDkkzJDNUgFEA&usqp=CAU' } },
 ];
-const {width: screenWidth} = Dimensions.get('window');
 
-const MyCarousel = props => {
-  const [entries, setEntries] = useState([]);
-  const carouselRef = useRef(null);
+export default class App extends PureComponent {
 
-  const goForward = () => {
-    carouselRef.current.snapToNext();
-  };
+  
+  renderItem = ({ item, index }) => (
+    <Image style={styles.image} source={item.thumbnail} />
+  );
 
-  useEffect(() => {
-    setEntries(ENTRIES1);
-  }, []);
-
-  const renderItem = ({item, index}, parallaxProps) => {
+  render() {
     return (
-      <View style={styles.item}>
-        <ParallaxImage
-          source={{uri: item.illustration}}
-          containerStyle={styles.imageContainer}
-          style={styles.image}
-          parallaxFactor={0.1}
-          {...parallaxProps}
+      <View style={styles.container}>
+        <GridList
+          showSeparator
+          separatorBorderWidth={10}
+          separatorBorderColor='white'
+          data={items}
+          numColumns={3}
+          renderItem={this.renderItem}
         />
-        {/* <Text style={styles.title} numberOfLines={2}>
-          {item.title}
-        </Text> */}
       </View>
     );
-  };
-
-  return (
-    <View style={styles.container}>
-      {/* <TouchableOpacity onPress={goForward}>
-        <Text>go to next slide</Text>
-      </TouchableOpacity> */}
-      <Carousel
-        ref={carouselRef}
-        sliderWidth={screenWidth}
-        sliderHeight={screenWidth}
-        itemWidth={screenWidth - 60}
-        data={entries}
-        renderItem={renderItem}
-        hasParallaxImages={true}
-      />
-    </View>
-  );
-};
-
-export default MyCarousel;
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: '8%',
-    width: '80%'
-  },
-  item: {
-    width: screenWidth - 60,
-    height: screenWidth - 100,
-  },
-  imageContainer: {
-    flex: 1,
-    marginBottom: Platform.select({ios: 0, android: 1}), 
     backgroundColor: 'white',
-    borderRadius: 30,
   },
   image: {
-    ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
+    borderRadius: 10,
   },
 });
