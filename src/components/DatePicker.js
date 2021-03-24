@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import {View, Button, Platform, StyleSheet, ViewBase} from 'react-native';
+import {View, Button, Platform, StyleSheet} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { Input } from 'native-base';
+
+import {Text} from 'native-base';
+
 
 const DatePicker = () => {
 
@@ -28,6 +30,9 @@ const DatePicker = () => {
     <View >
       <View style={styles.timePicker}>
         <Button onPress={showDatepicker} title="Choose Date" color="#F4BE2C"/>
+        <View style={{marginTop: '10%', marginLeft: '5%'}} > 
+          <Text>{date}</Text>
+        </View>
       </View>
       {show && (
         <DateTimePicker

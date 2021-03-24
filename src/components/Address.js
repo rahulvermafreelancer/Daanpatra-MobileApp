@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 const Address = () => {
+
+  const [pickup_address, setPickAddress] = useState("");
+
   return (
     <GooglePlacesAutocomplete
       placeholder='Enter Pickup Address'
