@@ -30,9 +30,7 @@ const DatePicker = () => {
     <View >
       <View style={styles.timePicker}>
         <Button onPress={showDatepicker} title="Choose Date" color="#F4BE2C"/>
-        <View style={{marginTop: '10%', marginLeft: '5%'}} > 
-          <Text>{date}</Text>
-        </View>
+        
       </View>
       {show && (
         <DateTimePicker
@@ -58,3 +56,6 @@ const styles = StyleSheet.create({
 
 export default DatePicker;
 
+// <View style={{marginTop: '10%', marginLeft: '5%'}} > 
+//           <Text>{date}</Text>
+//         </View>
