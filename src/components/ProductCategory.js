@@ -16,7 +16,7 @@ export default class ProductCategory extends Component {
   }
   render() {
     return (
-      <Container style={{height: '20%'}}>
+      <Container style={{height: '20%', backgroundColor: '#CAD5E2',}}>
         <Content>
           <Form>
             <Picker
@@ -34,7 +34,7 @@ export default class ProductCategory extends Component {
               <Picker.Item label="Books" value="key2" />
               <Picker.Item label="Utensils" value="key3" />
               <Picker.Item label="Equipments" value="key4" />
-              <Picker.Item label="Others" value="key6" />
+              <Picker.Item label="Others" value="key5" />
             </Picker>
           </Form>
         </Content>

@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import {Button, Text} from 'native-base';
+import {Text} from 'native-base';
 
 import ProductQuntity from '../components/ProductQuantity';
 import ProductCategory from '../components/ProductCategory';
@@ -22,6 +22,31 @@ import BackArrow from '../asset/images/BackArrow.png';
 import DonationFormBG from '../asset/images/DonationFormBG.png';
 
 const DonationForm = ({navigation, route}) => {
+
+
+  const donatesubmit = async(d) => {
+    d.preventDefault();
+    console.log({ product_category, quantity, pickup_time, pickup_date, pickup_address, product_description, images });
+    
+    let donateData = { product_category, quantity, pickup_time, pickup_date, pickup_address, product_description, images };
+  
+    let token = await localStorage.getItem("token");
+   
+    fetch("http://13.126.128.217/donation/", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        },
+        body: JSON.stringify(donateData)
+    }).then
+    ((result) => {
+        console.log("result", result);
+    })
+}   
+
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.slidingView}>
@@ -58,10 +83,13 @@ const DonationForm = ({navigation, route}) => {
         <View style={styles.productCategories}>
           <ProductDescription />
         </View>
-        <View style={styles.productCategories}>
-          <DonationFormButton />
-        </View>
+        
       </ScrollView>
+      <TouchableOpacity style={styles.productCategories}
+        onPress={donatesubmit()}
+      >
+          <DonationFormButton />
+        </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -70,7 +98,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#CAD5E2',
+    
   },
 
   slidingView: {

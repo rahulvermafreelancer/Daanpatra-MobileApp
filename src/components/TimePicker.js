@@ -8,6 +8,8 @@ const TimePicker = () => {
   const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
 
+  const [pickup_time, setPickupTime] = useState("");
+
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');

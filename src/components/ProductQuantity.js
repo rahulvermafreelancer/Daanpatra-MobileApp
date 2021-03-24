@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Container, Content, Form, Item, Input} from 'native-base';
 
 const ProductQuantity = () => {
+
+  const [quantity, setQuantity] = useState();
+
   return (
-    <Container style={{height: '20%'}}>
+    <Container style={{height: '20%', backgroundColor: '#CAD5E2',}}>
       <Content>
         <Form>
           <Item>
-            <Input placeholder="Product Quantity" />
+            <Input placeholder="Product Quantity"  />
           </Item>
         </Form>
       </Content>

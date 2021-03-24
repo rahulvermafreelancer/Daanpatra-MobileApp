@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="DonationForm">
+      <Stack.Navigator initialRouteName="MainScreen">
       <Stack.Screen name="MainScreen" component={MainScreen} options={{ headerShown: false }}/>
       <Stack.Screen name="CardScreen" component={CardScreen} options={{ headerShown: false }} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }}/>

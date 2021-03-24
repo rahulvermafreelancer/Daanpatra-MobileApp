@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView, SafeAreaView, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, SafeAreaView, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
 import {
   Content,
